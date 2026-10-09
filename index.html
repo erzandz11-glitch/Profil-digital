@@ -3,70 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Digital | Rafif Ersan Dzaky</title>
+    <title>Rafif Ersan Dzaky | Tech Visionary & Developer</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        /* Ambient Glow Background Effect */
+        .ambient-glow {
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseGlow 8s infinite alternate ease-in-out;
         }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+        .glow-blue {
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3b82f6;
+        }
+        .glow-purple {
+            bottom: 0px;
+            right: 10%;
+            background: #8b5cf6;
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.15; }
+            100% { transform: scale(1.15) translate(20px, 20px); opacity: 0.25; }
+        }
+
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Subtle Fade In Animation */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
+<body class="bg-[#090d16] text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-blue-500 selection:text-white flex flex-col items-center justify-start py-12 px-4 sm:px-6">
 
-    <!-- Kontainer Utama -->
-    <div class="w-full max-w-md text-center fade-in-up">
-        
-        <!-- Foto Profil (Inisial Nama) -->
-        <img src="https://ui-avatars.com/api/?name=Rafif+Ersan+Dzaky&background=0D8ABC&color=fff&size=150" 
-             alt="Foto Profil Rafif Ersan Dzaky" 
-             class="w-32 h-32 rounded-full mx-auto border-4 border-blue-500 shadow-lg shadow-blue-500/50 object-cover mb-4">
-        
-        <!-- Nama & Gelar -->
-        <h1 class="text-3xl font-bold mb-2">Rafif Ersan Dzaky</h1>
-        <p class="text-gray-400 mb-8">Future Tech CEO & Developer | 2045 Visionary</p>
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow glow-blue"></div>
+    <div class="ambient-glow glow-purple"></div>
 
-        <!-- Daftar Link -->
-        <div class="flex flex-col gap-4">
+    <!-- Main Container -->
+    <main class="w-full max-w-lg z-10 fade-in flex flex-col items-center">
+
+        <!-- Top Action (Share / Copy Link) -->
+        <div class="w-full flex justify-end mb-4">
+            <button onclick="copyProfileLink()" id="btnShare" class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-400 bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition-all flex items-center gap-1.5 shadow-sm">
+                <i class="fas fa-share-nodes text-blue-400"></i>
+                <span id="shareText">Bagikan</span>
+            </button>
+        </div>
+
+        <!-- Header Profile Section -->
+        <div class="text-center flex flex-col items-center">
             
-            <!-- Tombol 1: WhatsApp -->
-            <a href="https://wa.me/6288291858523" target="_blank" class="fade-in-up delay-1 flex items-center justify-center gap-3 w-full bg-gray-800 hover:bg-gray-700 hover:scale-105 transition-all duration-300 py-4 px-6 rounded-xl border border-gray-700 shadow-md">
-                <i class="fab fa-whatsapp text-green-400 text-xl"></i>
-                <span class="font-semibold">WhatsApp (0882-9185-8523)</span>
+            <!-- Avatar with Futuristic Glowing Ring -->
+            <div class="relative group mb-4">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-indigo-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
+                <div class="relative w-28 h-28 rounded-full overflow-hidden border-2 border-slate-700 bg-slate-900 flex items-center justify-center shadow-xl">
+                    <img id="avatarImage" 
+                         src="https://ui-avatars.com/api/?name=Rafif+Ersan+Dzaky&background=0F172A&color=38BDF8&size=200&bold=true&font-size=0.38" 
+                         alt="Foto Profil Rafif Ersan Dzaky" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Name -->
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-1.5">
+                Rafif Ersan Dzaky
+            </h1>
+
+            <!-- Visionary Subtitle -->
+            <p class="text-sm font-medium text-slate-400 max-w-xs mb-3">
+                Future Tech CEO & Full-Stack Developer <br>
+                <span class="text-xs text-blue-400/90 font-mono tracking-wider">PROJECT VISION 2045</span>
+            </p>
+
+            <!-- Live Status Badge (Pulsing Green) -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-6 shadow-sm">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Active | Building Next-Gen Systems
+            </div>
+        </div>
+
+        <!-- Section: Primary Social & Contact Links -->
+        <div class="w-full flex flex-col gap-3 mb-8">
+
+            <!-- WhatsApp Direct -->
+            <a href="https://wa.me/6288291858523?text=Halo%20Rafif%2C%20saya%20melihat%20profil%20digital%20Anda%20dan%20tertarik%20untuk%20terhubung." 
+               target="_blank" 
+               class="glass-card flex items-center justify-between p-3.5 rounded-2xl group">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm font-semibold text-white">WhatsApp Bisnis</p>
+                        <p class="text-xs text-slate-400">+62 882-9185-8523</p>
+                    </div>
+                </div>
+                <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
             </a>
 
-            <!-- Tombol 2: Instagram -->
-            <a href="https://instagram.com/red.snz" target="_blank" class="fade-in-up delay-2 flex items-center justify-center gap-3 w-full bg-gray-800 hover:bg-gray-700 hover:scale-105 transition-all duration-300 py-4 px-6 rounded-xl border border-gray-700 shadow-md">
-                <i class="fab fa-instagram text-pink-400 text-xl"></i>
-                <span class="font-semibold">Instagram (@red.snz)</span>
+            <!-- Instagram -->
+            <a href="https://instagram.com/red.snz" 
+               target="_blank" 
+               class="glass-card flex items-center justify-between p-3.5 rounded-2xl group">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-pink-500/15 text-pink-400 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm font-semibold text-white">Instagram</p>
+                        <p class="text-xs text-slate-400">@red.snz</p>
+                    </div>
+                </div>
+                <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-pink-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
             </a>
 
-            <!-- Tombol 3: GitHub -->
-            <a href="https://github.com/erzandz11-gitch" target="_blank" class="fade-in-up delay-3 flex items-center justify-center gap-3 w-full bg-gray-800 hover:bg-gray-700 hover:scale-105 transition-all duration-300 py-4 px-6 rounded-xl border border-gray-700 shadow-md">
-                <i class="fab fa-github text-white text-xl"></i>
-                <span class="font-semibold">GitHub (erzandz11-gitch)</span>
+            <!-- GitHub Portfolio -->
+            <a href="https://github.com/erzandz11-glitch" 
+               target="_blank" 
+               class="glass-card flex items-center justify-between p-3.5 rounded-2xl group">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800 text-slate-200 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm font-semibold text-white">GitHub Repositories</p>
+                        <p class="text-xs text-slate-400">@erzandz11-glitch</p>
+                    </div>
+                </div>
+                <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
             </a>
 
+            <!-- One-Click Save Contact (VCF Download) -->
+            <button onclick="downloadVCard()" 
+                    class="w-full flex items-center justify-center gap-2.5 p-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/20 active:scale-[0.99] transition-all duration-200">
+                <i class="fas fa-address-card text-base"></i>
+                <span>Simpan Kontak ke HP (+62)</span>
+            </button>
+        </div>
+
+        <!-- Section: Featured Ecosystem Projects -->
+        <div class="w-full mb-8">
+            <div class="flex items-center justify-between mb-3 px-1">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <i class="fas fa-cube text-blue-400 mr-1.5"></i> Kerajaan Proyek & Ekosistem
+                </h2>
+                <span class="text-[10px] text-slate-500 font-mono">PORTFOLIO</span>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                
+                <!-- Project 1: Nova Ecosystem -->
+                <div class="glass-card p-4 rounded-2xl border-l-4 border-l-blue-500">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-bold text-sm text-white">Nova Ecosystem</h3>
+                                <span class="px-2 py-0.5 text-[10px] rounded-full bg-blue-500/20 text-blue-300 font-semibold">FINANCE</span>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Solusi perangkat lunak akuntansi, manajemen keuangan bisnis, dan platform komunitas modern.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Sanz Store Engine -->
+                <div class="glass-card p-4 rounded-2xl border-l-4 border-l-emerald-500">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-bold text-sm text-white">Sanz Store Engine</h3>
+                                <span class="px-2 py-0.5 text-[10px] rounded-full bg-emerald-500/20 text-emerald-300 font-semibold">AUTOMATION</span>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Engine bot otomasi transaksi WhatsApp dengan verifikasi pembayaran QRIS instan & AI CS Gemini.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Game Factory -->
+                <div class="glass-card p-4 rounded-2xl border-l-4 border-l-purple-500">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-bold text-sm text-white">Game Factory</h3>
+                                <span class="px-2 py-0.5 text-[10px] rounded-full bg-purple-500/20 text-purple-300 font-semibold">STUDIO</span>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Laboratorium kreasi interaktif, manajemen aset visual, dan pengembangan video game masa depan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
         <!-- Footer -->
-        <p class="mt-12 text-sm text-gray-500 fade-in-up delay-3">
-            &copy; 2026 - Menuju 2045. Dibuat dengan <i class="fas fa-bolt text-yellow-400"></i> Antigravity.
-        </p>
+        <footer class="text-center text-xs text-slate-500 pt-4 border-t border-white/5 w-full">
+            <p class="mb-1 font-medium text-slate-400">
+                &copy; 2026 Rafif Ersan Dzaky. All rights reserved.
+            </p>
+            <p class="text-[11px] text-slate-500">
+                Roadmap to 2045 &bull; Crafted with <span class="text-amber-400">⚡</span> Antigravity AI
+            </p>
+        </footer>
 
-    </div>
+    </main>
 
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        // 1. One-Click VCF (Virtual Contact File) Generator & Downloader
+        function downloadVCard() {
+            const vcardData = [
+                'BEGIN:VCARD',
+                'VERSION:3.0',
+                'N:Dzaky;Rafif;Ersan;;',
+                'FN:Rafif Ersan Dzaky',
+                'ORG:Tech Visionary 2045;',
+                'TITLE:Tech CEO & Developer',
+                'TEL;TYPE=CELL,VOICE:+6288291858523',
+                'URL:https://erzandz11-glitch.github.io/Profil-digital/',
+                'NOTE:Kontak Resmi Rafif Ersan Dzaky (Tech Ecosystem Developer)',
+                'END:VCARD'
+            ].join('\r\n');
+
+            const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Rafif_Ersan_Dzaky.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // 2. Quick Share / Copy Profile Link
+        function copyProfileLink() {
+            const profileUrl = window.location.href;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(profileUrl).then(() => {
+                    showCopySuccess();
+                }).catch(() => {
+                    fallbackCopy();
+                });
+            } else {
+                fallbackCopy();
+            }
+        }
+
+        function fallbackCopy() {
+            const tempInput = document.createElement('input');
+            tempInput.value = window.location.href;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showCopySuccess();
+        }
+
+        function showCopySuccess() {
+            const shareText = document.getElementById('shareText');
+            const originalText = shareText.innerText;
+            shareText.innerText = 'Tersalin! ✅';
+            setTimeout(() => {
+                shareText.innerText = originalText;
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
-
