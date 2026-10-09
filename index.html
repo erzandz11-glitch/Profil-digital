@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Digital | Rafif Ersan Dzaky</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Kontainer Utama -->
+    <div class="w-full max-w-md text-center fade-in-up">
+        
+        <!-- Foto Profil (Inisial Nama) -->
+        <img src="https://ui-avatars.com/api/?name=Rafif+Ersan+Dzaky&background=0D8ABC&color=fff&size=150" 
+             alt="Foto Profil Rafif Ersan Dzaky" 
+             class="w-32 h-32 rounded-full mx-auto border-4 border-blue-500 shadow-lg shadow-blue-500/50 object-cover mb-4">
+        
+        <!-- Nama & Gelar -->
+        <h1 class="text-3xl font-bold mb-2">Rafif Ersan Dzaky</h1>
+        <p class="text-gray-400 mb-8">Future Tech CEO & Developer | 2045 Visionary</p>
+
+        <!-- Daftar Link -->
+        <div class="flex flex-col gap-4">
+            
+            <!-- Tombol 1: WhatsApp -->
+            <a href="https://wa.me/6288291858523" target="_blank" class="fade-in-up delay-1 flex items-center justify-center gap-3 w-full bg-gray-800 hover:bg-gray-700 hover:scale-105 transition-all duration-300 py-4 px-6 rounded-xl border border-gray-700 shadow-md">
+                <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                <span class="font-semibold">WhatsApp (0882-9185-8523)</span>
+            </a>
+
+            <!-- Tombol 2: Instagram -->
+            <a href="https://instagram.com/red.snz" target="_blank" class="fade-in-up delay-2 flex items-center justify-center gap-3 w-full bg-gray-800 hover:bg-gray-700 hover:scale-105 transition-all duration-300 py-4 px-6 rounded-xl border border-gray-700 shadow-md">
+                <i class="fab fa-instagram text-pink-400 text-xl"></i>
+                <span class="font-semibold">Instagram (@red.snz)</span>
+            </a>
+
+            <!-- Tombol 3: GitHub -->
+            <a href="https://github.com/erzandz11-gitch" target="_blank" class="fade-in-up delay-3 flex items-center justify-center gap-3 w-full bg-gray-800 hover:bg-gray-700 hover:scale-105 transition-all duration-300 py-4 px-6 rounded-xl border border-gray-700 shadow-md">
+                <i class="fab fa-github text-white text-xl"></i>
+                <span class="font-semibold">GitHub (erzandz11-gitch)</span>
+            </a>
+
+        </div>
+
+        <!-- Footer -->
+        <p class="mt-12 text-sm text-gray-500 fade-in-up delay-3">
+            &copy; 2026 - Menuju 2045. Dibuat dengan <i class="fas fa-bolt text-yellow-400"></i> Antigravity.
+        </p>
+
+    </div>
+
+</body>
+</html>
